@@ -1,17 +1,19 @@
 import styles from "./App.module.scss";
 import Home from "./components/Home/Home";
-import { createContext, useState } from "react";
-export const SearchContext = createContext(null);
+import { useContext } from "react";
+import { SearchContext } from "./components/contexts/SearchContextProvider/SearchContextProvider";
 
 const App = () => {
-	const [searchTerm, setSearchTerm] = useState(null);
+	const { hasSearched } = useContext(SearchContext);
 
 	return (
-		<SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
-			<div className={styles.page_container}>
-				<Home />
-			</div>
-		</SearchContext.Provider>
+		<>
+			{!hasSearched && (
+				<div className={styles.page_container}>
+					<Home />
+				</div>
+			)}
+		</>
 	);
 };
 
