@@ -2,6 +2,7 @@ import styles from "./App.module.scss";
 import Home from "./components/Home/Home";
 import { useContext } from "react";
 import { SearchContext } from "./components/contexts/SearchContextProvider/SearchContextProvider";
+import ResultsPage from "./components/ResultsPage/ResultsPage";
 
 const App = () => {
 	const { hasSearched } = useContext(SearchContext);
@@ -13,6 +14,7 @@ const App = () => {
 					<Home />
 				</div>
 			)}
+			{hasSearched && <ResultsPage />}
 		</>
 	);
 };
