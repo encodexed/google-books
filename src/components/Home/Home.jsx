@@ -1,24 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import styles from "./Home.module.scss";
 import GoogleHeader from "../GoogleHeader/GoogleHeader";
 import Button from "../UI/Button/Button";
+import { SearchContext } from "../../App";
 
 const Home = () => {
 	const searchInput = useRef();
+	const { searchTerm, setSearchTerm } = useContext(SearchContext);
 
 	return (
 		<div className={styles.home__container}>
 			<div className={styles.home__header}>
 				<GoogleHeader />
-				<h3>Millions of books at your fingertips</h3>
+				{searchTerm === null && <h3>Millions of books at your fingertips</h3>}
 			</div>
 			<div className={styles.home__search}>
 				<input type='text' ref={searchInput} />
-				<Button
-					text={"Search Google Books"}
-					onClick={() => console.log(searchInput.current.value)}
-				/>
+				<Button text={"Search Google Books"} onClick={setSearchTerm} />
 			</div>
 		</div>
 	);
