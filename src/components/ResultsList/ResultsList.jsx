@@ -1,16 +1,20 @@
+/* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../contexts/SearchContextProvider/SearchContextProvider";
 import requestBooksData from "../../scripts/requestBooksData";
 import BookTile from "../BookTile/BookTile";
 import styles from "./ResultsList.module.scss";
 
-const ResultsList = () => {
+const ResultsList = ({ updateBooksMetadata }) => {
 	const { searchTerm } = useContext(SearchContext);
 	const [booksData, setBooksData] = useState(null);
-	console.log(booksData);
 
 	const handleData = async () => {
-		await requestBooksData(searchTerm).then((data) => setBooksData(data));
+		await requestBooksData(searchTerm).then((data) => {
+			setBooksData(data);
+			const { totalItems } = data;
+			updateBooksMetadata({ totalItems });
+		});
 	};
 
 	useEffect(() => {
