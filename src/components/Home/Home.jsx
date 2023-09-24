@@ -10,7 +10,7 @@ const Home = () => {
 				<GoogleHeader />
 				<h3>Millions of books at your fingertips</h3>
 			</div>
-			<SearchForm />
+			<SearchForm flex='col' />
 		</div>
 	);
 };
