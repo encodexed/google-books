@@ -8,7 +8,7 @@ const Home = () => {
 		<div className={styles.home__container}>
 			<div className={styles.home__header}>
 				<GoogleHeader size='80px' spacing='-3px' />
-				<h3>Millions of books at your fingertips</h3>
+				<h3>Millions of publications at your fingertips</h3>
 			</div>
 			<SearchForm flex='col' btnText='Search Google Books' />
 		</div>

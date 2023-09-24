@@ -18,9 +18,30 @@ nav {
 	display: flex;
 	margin: 0 20px;
 	justify-content: space-between;
+	align-items: center;
 	width: 100%;
 
 	& div {
-		width: 33.3%;
+		width: 50%;
+	}
+}
+
+.nav {
+	&__right {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 20px;
+	}
+
+	&__dark_mode {
+		&_container {
+			max-width: fit-content;
+		}
+
+		&_icon {
+			height: 40px;
+			width: auto;
+		}
 	}
 }
