@@ -10,17 +10,13 @@ const App = () => {
 
 	return (
 		<>
+			<Navbar />
 			{!hasSearched && (
 				<div className={styles.page_container}>
 					<Home />
 				</div>
 			)}
-			{hasSearched && (
-				<>
-					<Navbar />
-					<ResultsPage />
-				</>
-			)}
+			{hasSearched && <ResultsPage />}
 		</>
 	);
 };
