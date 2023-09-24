@@ -5,6 +5,7 @@
 		align-items: center;
 		width: 100%;
 		gap: 10px;
+		max-height: 40px;
 	}
 
 	&__flex_row {
@@ -12,6 +13,7 @@
 		justify-content: center;
 		gap: 10px;
 		width: 100%;
+		max-height: 40px;
 	}
 
 	&__input {

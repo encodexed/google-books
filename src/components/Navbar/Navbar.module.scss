@@ -1,0 +1,26 @@
+// Header / navbar
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	position: sticky;
+	top: 0px;
+	z-index: 2;
+	padding: 5px 0;
+	border-bottom: 0.5px solid grey;
+}
+
+nav {
+	display: flex;
+	margin: 0 20px;
+	justify-content: space-between;
+	width: 100%;
+
+	& div {
+		width: 33.3%;
+	}
+}

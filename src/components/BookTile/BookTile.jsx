@@ -2,7 +2,7 @@
 import styles from "./BookTile.module.scss";
 
 const BookTile = ({ info }) => {
-	const { title, authors, imageLinks } = info;
+	const { title, authors, imageLinks, publisher } = info;
 	const authorsStr = authors.reduce((total, next) => (total += ", " + next));
 
 	return (
@@ -22,7 +22,7 @@ const BookTile = ({ info }) => {
 			<div className={styles.bookTile__content}>
 				<h3>{title}</h3>
 				<p>{authorsStr}</p>
-				<p className={styles.bookTile__content__publisher}>Penguin Books</p>
+				<p className={styles.bookTile__content__publisher}>{publisher}</p>
 			</div>
 		</article>
 	);

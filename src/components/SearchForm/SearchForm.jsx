@@ -4,7 +4,7 @@ import { SearchContext } from "../contexts/SearchContextProvider/SearchContextPr
 import styles from "./SearchForm.module.scss";
 import Button from "../UI/Button/Button";
 
-const SearchForm = ({ flex }) => {
+const SearchForm = ({ flex, btnText }) => {
 	const searchInput = useRef(null);
 	const { setSearchTerm, setHasSearched } = useContext(SearchContext);
 
@@ -28,7 +28,7 @@ const SearchForm = ({ flex }) => {
 				type='text'
 				ref={searchInput}
 			/>
-			<Button text={"Search Google Books"} onClick={handleSearch} />
+			<Button text={btnText} onClick={handleSearch} />
 		</form>
 	);
 };

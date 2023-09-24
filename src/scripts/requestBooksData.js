@@ -8,8 +8,9 @@ const requestBooksData = async (input) => {
 	const booksData = await response.json();
 	console.log(booksData);
 	const usefulBookData = booksData.items.map((book) => {
-		const { authors, categories, publishedDate, publisher, subtitle, title } =
+		const { categories, publishedDate, publisher, subtitle, title } =
 			book.volumeInfo;
+		const authors = book.volumeInfo?.authors || [""];
 		const imageLinks = book.volumeInfo?.imageLinks || {};
 		if (imageLinks.thumbnail !== undefined) {
 			imageLinks.medium = imageLinks.thumbnail + "&fife=w400-h600";

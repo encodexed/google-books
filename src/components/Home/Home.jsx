@@ -7,10 +7,10 @@ const Home = () => {
 	return (
 		<div className={styles.home__container}>
 			<div className={styles.home__header}>
-				<GoogleHeader />
+				<GoogleHeader size='80px' spacing='-3px' />
 				<h3>Millions of books at your fingertips</h3>
 			</div>
-			<SearchForm flex='col' />
+			<SearchForm flex='col' btnText='Search Google Books' />
 		</div>
 	);
 };
