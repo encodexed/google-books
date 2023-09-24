@@ -1,9 +1,9 @@
-const requestBooksData = async (input) => {
+const requestBooksData = async (input, startIndex = 0, maxResults = 12) => {
 	const preparedInput = input.replaceAll(" ", "+");
+	const baseUrl = "https://www.googleapis.com/books/v1/volumes";
+	const apiKey = import.meta.env.VITE_API_KEY;
 	const response = await fetch(
-		`https://www.googleapis.com/books/v1/volumes?q=${preparedInput}&key=${
-			import.meta.env.VITE_API_KEY
-		}`
+		`${baseUrl}?q=${preparedInput}&startIndex=${startIndex}&maxResults=${maxResults}&key=${apiKey}`
 	);
 	const booksData = await response.json();
 	console.log(booksData);
