@@ -1,18 +1,26 @@
-import { useState } from "react";
 import ResultsList from "../ResultsList/ResultsList";
 import ResultsSummary from "../ResultsSummary/ResultsSummary";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../contexts/SearchContextProvider/SearchContextProvider";
+import requestBooksData from "../../scripts/requestBooksData";
 
 const ResultsPage = () => {
-	const [booksMetadata, setBooksMetadata] = useState(null);
+	const [booksData, setBooksData] = useState(null);
+	const { searchTerm } = useContext(SearchContext);
 
-	const updateBooksMetadata = (metadata) => {
-		setBooksMetadata(metadata);
-	};
+	useEffect(() => {
+		const handleData = async () => {
+			await requestBooksData(searchTerm).then((data) => {
+				setBooksData(data);
+			});
+		};
+		handleData();
+	}, [searchTerm]);
 
 	return (
 		<>
-			<ResultsSummary booksMetadata={booksMetadata} />
-			<ResultsList updateBooksMetadata={updateBooksMetadata} />
+			<ResultsSummary booksData={booksData} />
+			<ResultsList booksData={booksData} />
 		</>
 	);
 };
