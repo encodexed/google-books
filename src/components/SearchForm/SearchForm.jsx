@@ -10,6 +10,10 @@ const SearchForm = ({ flex, btnText }) => {
 
 	const handleSearch = (e) => {
 		e.preventDefault();
+		if (!searchInput.current.value) {
+			alert("You cannot search without entering a search term");
+			return;
+		}
 		setSearchTerm(searchInput.current.value);
 		setHasSearched(true);
 	};
