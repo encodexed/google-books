@@ -7,6 +7,9 @@ const DarkModeIcon = () => {
 	const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
 	const toggleDarkMode = () => {
+		alert(
+			"Hello, thank you for pressing to see if dark mode works. It currently is only about half done. I have to work on getting the body painted dark dynamically. It was super annoying, but I left the styles in that I had done anyway"
+		);
 		setDarkMode(!darkMode);
 	};
 
