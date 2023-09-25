@@ -8,8 +8,16 @@ const requestBooksData = async (input, startIndex = 0, maxResults = 12) => {
 	const booksData = await response.json();
 	console.log(booksData);
 	const usefulBookData = booksData.items.map((book) => {
-		const { categories, publishedDate, publisher, subtitle, title } =
-			book.volumeInfo;
+		const {
+			categories,
+			description,
+			infoLink,
+			pageCount,
+			publishedDate,
+			publisher,
+			subtitle,
+			title,
+		} = book.volumeInfo;
 		const authors = book.volumeInfo?.authors || [""];
 		const imageLinks = book.volumeInfo?.imageLinks || {};
 		if (imageLinks.thumbnail !== undefined) {
@@ -30,8 +38,11 @@ const requestBooksData = async (input, startIndex = 0, maxResults = 12) => {
 			authors,
 			categories,
 			currencyCode,
+			description,
 			id,
 			imageLinks,
+			infoLink,
+			pageCount,
 			publishedDate,
 			publisher,
 			saleability,
