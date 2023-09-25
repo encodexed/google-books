@@ -3,11 +3,18 @@ import { SearchContext } from "../contexts/SearchContextProvider/SearchContextPr
 import { useContext, useEffect, useState } from "react";
 import styles from "./ResultsSummary.module.scss";
 import Pagination from "../Pagination/Pagination";
+import { DarkModeContext } from "../contexts/DarkModeContextProvider/DarkModeContextProvider";
 
 const ResultsSummary = ({ booksData }) => {
 	const { searchTerm, isSearching, resultsNavInfo } = useContext(SearchContext);
 	const { startIndex, maxResults, pageNumber } = resultsNavInfo;
 	const [resultsCount, setResultsCount] = useState(null);
+	const { darkMode } = useContext(DarkModeContext);
+
+	let summaryClass = styles.results_summary;
+	if (darkMode) {
+		summaryClass = styles.results_summary_dark;
+	}
 
 	useEffect(() => {
 		if (booksData === null) return;
@@ -25,12 +32,10 @@ const ResultsSummary = ({ booksData }) => {
 
 	return (
 		<>
-			{isSearching && (
-				<div className={styles.results_summary}>Retrieving volumes...</div>
-			)}
+			{isSearching && <div className={summaryClass}>Retrieving volumes...</div>}
 			{!isSearching && booksData && (
 				<>
-					<div className={styles.results_summary}>
+					<div className={summaryClass}>
 						<div>{summaryStr}</div>
 					</div>
 					<Pagination pageNumber={pageNumber} />

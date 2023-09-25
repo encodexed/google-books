@@ -1,0 +1,10 @@
+.dark_mode {
+	&__container {
+		max-width: fit-content;
+	}
+
+	&__icon {
+		height: 40px;
+		width: auto;
+	}
+}

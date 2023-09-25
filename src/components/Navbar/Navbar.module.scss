@@ -1,17 +1,32 @@
 // Header / navbar
 
-header {
+.header {
 	display: flex;
+	background-color: white;
 	justify-content: center;
 	align-items: center;
 	height: 50px;
 	width: 100%;
-	background-color: white;
 	position: sticky;
 	top: 0px;
 	z-index: 2;
 	padding: 5px 0;
 	border-bottom: 0.5px solid grey;
+
+	&_dark {
+		@extend .header;
+		background-color: #282932;
+
+		&__clean {
+			@extend .header_dark;
+			border: 0;
+		}
+	}
+
+	&__clean {
+		@extend .header;
+		border: 0;
+	}
 }
 
 nav {
@@ -32,16 +47,5 @@ nav {
 		justify-content: flex-end;
 		align-items: center;
 		gap: 20px;
-	}
-
-	&__dark_mode {
-		&_container {
-			max-width: fit-content;
-		}
-
-		&_icon {
-			height: 40px;
-			width: auto;
-		}
 	}
 }

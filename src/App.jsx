@@ -4,23 +4,26 @@ import { useContext } from "react";
 import { SearchContext } from "./components/contexts/SearchContextProvider/SearchContextProvider";
 import ResultsPage from "./components/ResultsPage/ResultsPage";
 import Navbar from "./components/Navbar/Navbar";
+import { DarkModeContext } from "./components/contexts/DarkModeContextProvider/DarkModeContextProvider";
 
 const App = () => {
 	const { hasSearched } = useContext(SearchContext);
+	const { darkMode } = useContext(DarkModeContext);
+
+	let pageContainerClass = styles.page_container;
+	if (darkMode) {
+		pageContainerClass = styles.page_container_dark;
+	}
 
 	return (
 		<>
+			<Navbar />
 			{!hasSearched && (
-				<div className={styles.page_container}>
+				<div className={pageContainerClass}>
 					<Home />
 				</div>
 			)}
-			{hasSearched && (
-				<>
-					<Navbar />
-					<ResultsPage />
-				</>
-			)}
+			{hasSearched && <ResultsPage />}
 		</>
 	);
 };
