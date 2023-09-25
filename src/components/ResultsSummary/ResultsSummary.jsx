@@ -5,7 +5,7 @@ import styles from "./ResultsSummary.module.scss";
 import Pagination from "../Pagination/Pagination";
 
 const ResultsSummary = ({ booksData }) => {
-	const { searchTerm, resultsNavInfo } = useContext(SearchContext);
+	const { searchTerm, isSearching, resultsNavInfo } = useContext(SearchContext);
 	const { startIndex, maxResults, pageNumber } = resultsNavInfo;
 	const [resultsCount, setResultsCount] = useState(null);
 
@@ -25,10 +25,10 @@ const ResultsSummary = ({ booksData }) => {
 
 	return (
 		<>
-			{!booksData && (
+			{isSearching && (
 				<div className={styles.results_summary}>Retrieving volumes...</div>
 			)}
-			{booksData && (
+			{!isSearching && booksData && (
 				<>
 					<div className={styles.results_summary}>
 						<div>{summaryStr}</div>
@@ -36,6 +36,7 @@ const ResultsSummary = ({ booksData }) => {
 					<Pagination pageNumber={pageNumber} />
 				</>
 			)}
+			{!isSearching && !booksData && <p>Ummmm... something went wrong?</p>}
 		</>
 	);
 };

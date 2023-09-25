@@ -4,6 +4,7 @@ export const SearchContext = createContext(null);
 
 const SearchContextProvider = ({ children }) => {
 	const [searchTerm, setSearchTerm] = useState(null);
+	const [isSearching, setIsSearching] = useState(false);
 	const [hasSearched, setHasSearched] = useState(false);
 	const [resultsNavInfo, setResultsNavInfo] = useState({
 		startIndex: 0,
@@ -16,6 +17,8 @@ const SearchContextProvider = ({ children }) => {
 			value={{
 				searchTerm,
 				setSearchTerm,
+				isSearching,
+				setIsSearching,
 				hasSearched,
 				setHasSearched,
 				resultsNavInfo,

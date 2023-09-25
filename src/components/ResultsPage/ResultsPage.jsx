@@ -6,19 +6,20 @@ import requestBooksData from "../../scripts/requestBooksData";
 
 const ResultsPage = () => {
 	const [booksData, setBooksData] = useState(null);
-	const { searchTerm, resultsNavInfo } = useContext(SearchContext);
+	const { setIsSearching, searchTerm, resultsNavInfo } =
+		useContext(SearchContext);
 	const { startIndex, maxResults } = resultsNavInfo;
 
 	useEffect(() => {
+		setIsSearching(true);
 		const handleData = async () => {
-			await requestBooksData(searchTerm, startIndex, maxResults).then(
-				(data) => {
-					setBooksData(data);
-				}
-			);
+			await requestBooksData(searchTerm, startIndex, maxResults)
+				.then((data) => setBooksData(data))
+				.catch((err) => console.log(err.message))
+				.finally(() => setIsSearching(false));
 		};
 		handleData();
-	}, [searchTerm, startIndex, maxResults]);
+	}, [searchTerm, setIsSearching, startIndex, maxResults]);
 
 	return (
 		<>
