@@ -1,0 +1,51 @@
+// Header / navbar
+
+.header {
+	display: flex;
+	background-color: white;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	position: sticky;
+	top: 0px;
+	z-index: 2;
+	padding: 5px 0;
+	border-bottom: 0.5px solid grey;
+
+	&_dark {
+		@extend .header;
+		background-color: #282932;
+
+		&__clean {
+			@extend .header_dark;
+			border: 0;
+		}
+	}
+
+	&__clean {
+		@extend .header;
+		border: 0;
+	}
+}
+
+nav {
+	display: flex;
+	margin: 0 20px;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+
+	& div {
+		width: 50%;
+	}
+}
+
+.nav {
+	&__right {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 20px;
+	}
+}

@@ -1,0 +1,12 @@
+.results_summary {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin: 20px;
+
+	&_dark {
+		@extend .results_summary;
+		color: white;
+	}
+}
