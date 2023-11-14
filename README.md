@@ -20,6 +20,8 @@ Google Books Search is a project I built as part of my participation during the 
 - dealing with data out of our control
 - applying business logic to best present the data
 
+**Tech Stack:** HTML, SCSS, JavaScript, React
+
 ---
 
 ## Build Steps
