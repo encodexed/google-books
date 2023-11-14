@@ -1,13 +1,8 @@
-# Google Books
-
-There is much I would still like to fix on this project, such as getting the navbar to collapse properly, and for dark mode to be better implemented.
-I would also like to handle the empty search error a bit more graciously, as well as style the modal a little more completely.
-
 # Google Books Search
 
 ## Demo & Snippets
 
-Collage goes here.
+![google-books-collage](https://github.com/encodexed/google-books/assets/107448691/f10cf132-11b7-46d2-a56f-babf5a473b6d)
 
 Full size images:
 
@@ -103,6 +98,7 @@ This project is wrapped up and I will likely not be working on it anymore, inste
 
 - Implement the dark mode completely (this became difficult to implement later into the project as there way many layers controlling the colour of some elements)
 - Make sure the app looks good on screens of all sizes; mostly just implementing a hamburger dropdown menu on the navbar
+- Add a more gracious handling of empty search errors
 
 ---
 
